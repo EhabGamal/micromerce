@@ -4,9 +4,9 @@ const plugin = function(options) {
   /**
    * Fetch the list of all the products.
    */
-  seneca.add({ role: "product", cmd: "fetch" }, function({ args }, done) {
-    const id = args.params.id;
-    const { category } = args.query;
+  seneca.add({ role: "product", cmd: "fetch" }, function({args = {}}, done) {
+    const { id } = args.params ? args.params : {};
+    const { category } = args.query ? args.query : {};
 
     if(id) {
       seneca.act({ role: 'product', cmd: 'fetch', criteria: 'byId', id}, done);
