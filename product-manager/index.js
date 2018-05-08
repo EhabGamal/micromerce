@@ -11,6 +11,7 @@ seneca
   .use('web', { routes, context, adapter })
   .use(plugin)
   .ready(function(err){
-    const server = this.export('web/context')();
-    server.listen(3000);
-  })
+    const app = seneca.export('web/context')();
+    app.listen(3001);
+    seneca.listen(9001);
+  });

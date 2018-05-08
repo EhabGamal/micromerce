@@ -20,20 +20,14 @@ const plugin = function (options){
 
   seneca.add({init: 'mailer'}, function(options, done){
     nodemailer = require('nodemailer');
-    nodemailer.createTestAccount(function(err, account){
-      if(err) return;
-      
-      transporter = nodemailer.createTransport({
-        host: account.smtp.host,
-        port: account.smtp.port,
-        secure: account.smtp.secure,
-        auth: {
-          user: account.user,
-          pass: account.pass
-        }
-      });
-      done();
+    transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'EMAIL_ADDRESS@gmail.com',
+        pass: 'PA$$W0RD'
+      }
     });
+    done();
   });
 
   return 'mailer';
