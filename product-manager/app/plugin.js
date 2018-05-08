@@ -39,12 +39,17 @@ const plugin = function(options) {
    * Adds a product.
    */
   seneca.add({ role: "product", cmd: "add" }, function({ args }, done) {
-    const body = JSON.parse(args.body);
+    const {
+      name,
+      category,
+      description,
+      price
+    } = args.body;
     const products = seneca.make("products");
-    products.name = body.name;
-    products.description = body.description;
-    products.category = body.category;
-    products.price = body.price;
+    products.name = name;
+    products.description = description;
+    products.category = category;
+    products.price = price;
     products.save$(function(err, product) {
       done(err, products.data$(false));
     });
@@ -76,7 +81,7 @@ const plugin = function(options) {
           category,
           description,
           price
-        } = JSON.parse(args.body);
+        } = args.body;
         product.data$({
           name: name || product.name,
           category: category || product.category,

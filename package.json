@@ -1,6 +1,6 @@
 {
   "name": "micromerce",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": "Ehab Gamal",
   "license": "ISC",
   "description": "Simple e-commerce solution using Seneca microservices",
