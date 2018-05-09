@@ -1,0 +1,6 @@
+{
+  "extends": ["seneca"],
+  "rules": {
+    "semi": [2, "always"]
+  }
+}
