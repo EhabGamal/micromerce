@@ -1,10 +1,12 @@
 const Express = require('express');
-const seneca = require('seneca')();
+const Seneca = require('seneca');
 const Adapter = require('seneca-web-adapter-express');
 
 const Plugin = require('./app/plugin');
 const Routes = require('./app/routes');
+const Options = require('../utils/options');
 
+const seneca = Seneca(Options);
 const context = Express();
 context.use(Express.json());
 
