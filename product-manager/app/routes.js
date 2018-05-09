@@ -18,6 +18,6 @@ const routes = [{
       suffix: '/:id'
     }
   }
-}]
+}];
 
 module.exports = routes;
