@@ -1,17 +1,19 @@
-const express = require('express');
-const seneca = require('seneca')();
-const adapter = require('seneca-web-adapter-express');
+const Express = require('express');
+const Seneca = require('seneca');
+const Adapter = require('seneca-web-adapter-express');
 
-const plugin = require('./app/plugin');
-const routes = require('./app/routes');
+const Plugin = require('./app/plugin');
+const Routes = require('./app/routes');
+const Options = require('../utils/options');
 
-const context = express();
-context.use(express.json());
+const seneca = Seneca(Options);
+const context = Express();
+context.use(Express.json());
 
 const webConfig = {
-  routes,
   context,
-  adapter,
+  routes: Routes,
+  adapter: Adapter,
   options: {
     parseBody: false
   }
@@ -19,8 +21,12 @@ const webConfig = {
 
 seneca
   .use('web', webConfig)
-  .use(plugin)
-  .ready(function(err){
+  .use(Plugin)
+  .ready((err) => {
+    if (err) {
+      seneca.log.err('Error starting front-end service!');
+      return;
+    }
     const app = seneca.export('web/context')();
     app.listen(3000);
   });

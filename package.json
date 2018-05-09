@@ -1,14 +1,11 @@
 {
   "name": "micromerce",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": "Ehab Gamal",
   "license": "ISC",
   "description": "Simple e-commerce solution using Seneca microservices",
   "keywords": [],
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
-  },
   "homepage": "https://github.com/EhabGamal/micromerce#readme",
   "repository": {
     "type": "git",
@@ -17,7 +14,18 @@
   "bugs": {
     "url": "https://github.com/EhabGamal/micromerce/issues"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix ."
+  },
   "dependencies": {
     "seneca": "^3.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-seneca": "^3.0.0",
+    "eslint-plugin-hapi": "^4.1.0",
+    "eslint-plugin-standard": "^3.1.0"
   }
 }

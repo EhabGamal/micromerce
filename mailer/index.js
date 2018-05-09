@@ -1,8 +1,16 @@
-const seneca = require('seneca')();
-const plugin = require('./app/plugin');
+const Seneca = require('seneca');
+
+const Plugin = require('./app/plugin');
+const Options = require('../utils/options');
+
+const seneca = Seneca(Options);
 
 seneca
-  .use(plugin)
-  .ready(function(err){
+  .use(Plugin)
+  .ready((err) => {
+    if (err) {
+      seneca.log.err('Error starting mailer service!');
+      return;
+    }
     seneca.listen(9003);
   });

@@ -10,7 +10,7 @@ const routes = [{
       GET: true
     }
   }
-},{
+}, {
   prefix: '/api/order',
   pin: 'role:api,cmd:order,action:*',
   map: {
@@ -22,6 +22,6 @@ const routes = [{
       suffix: '/:id?'
     }
   }
-}]
+}];
 
 module.exports = routes;
