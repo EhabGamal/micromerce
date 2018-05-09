@@ -1,5 +1,9 @@
-const seneca = require('seneca')();
+const Seneca = require('seneca');
+
 const Plugin = require('./app/plugin');
+const Options = require('../utils/options');
+
+const seneca = Seneca(Options);
 
 seneca
   .use('entity')
