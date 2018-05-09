@@ -1,24 +1,26 @@
-const plugin = function (options){
+const plugin = function (options) {
   const seneca = this;
-  let nodemailer, transporter = null;
+  let nodemailer = null;
+  let transporter = null;
 
-  seneca.add({ role: 'email', cmd: 'send' }, function(args, done){
+  seneca.add({ role: 'email', cmd: 'send' }, function (args, done) {
     const mailOptions = {
       from: 'Micromerce Info ✔ <info@micromerce.com>',
-      to: args.to, 
+      to: args.to,
       subject: args.subject,
       html: args.body
     };
-    transporter.sendMail(mailOptions, function(err, info){
-      if(err){
+    transporter.sendMail(mailOptions, function (err, info) {
+      if (err) {
         done({code: err}, null);
-      } else {
-        done(null, {status: "sent"});
+      }
+      else {
+        done(null, {status: 'sent'});
       }
     });
   });
 
-  seneca.add({init: 'mailer'}, function(options, done){
+  seneca.add({init: 'mailer'}, function (options, done) {
     nodemailer = require('nodemailer');
     transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -31,6 +33,6 @@ const plugin = function (options){
   });
 
   return 'mailer';
-}
+};
 
 module.exports = plugin;
