@@ -15,7 +15,7 @@
     "url": "https://github.com/EhabGamal/micromerce/issues"
   },
   "scripts": {
-    "test": "mocha --recursive",
+    "test": "nyc --reporter=lcov --reporter=text-lcov mocha --recursive",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
   },
@@ -31,6 +31,7 @@
     "eslint-plugin-hapi": "^4.1.0",
     "eslint-plugin-standard": "^3.1.0",
     "mocha": "^5.1.1",
+    "nyc": "^11.7.3",
     "sinon": "^5.0.7"
   }
 }
