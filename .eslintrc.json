@@ -1,5 +1,5 @@
 {
-  "extends": ["seneca"],
+  "extends": ["eslint:recommended", "seneca"],
   "rules": {
     "semi": [2, "always"]
   }

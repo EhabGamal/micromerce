@@ -15,6 +15,7 @@ Logger.preload = function () {
     const type = pad(payload.case || '-', 8).toUpperCase();
     const text = payload.notice || payload.pattern || '-';
 
+    // eslint-disable-next-line no-console
     console.log(when, kind, type, text);
   }
 
