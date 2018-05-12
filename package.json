@@ -1,6 +1,6 @@
 {
   "name": "micromerce",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": "Ehab Gamal",
   "license": "ISC",
   "description": "Simple e-commerce solution using Seneca microservices",
@@ -15,6 +15,7 @@
     "url": "https://github.com/EhabGamal/micromerce/issues"
   },
   "scripts": {
+    "start": "pm2 start ecosystem.json",
     "test": "nyc --reporter=lcov --reporter=text-lcov mocha --recursive",
     "lint": "eslint .",
     "lint-fix": "eslint --fix ."
@@ -32,6 +33,7 @@
     "eslint-plugin-standard": "^3.1.0",
     "mocha": "^5.1.1",
     "nyc": "^11.7.3",
+    "pm2": "^2.10.3",
     "sinon": "^5.0.7"
   }
 }
