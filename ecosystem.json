@@ -1,0 +1,60 @@
+{
+  "apps": [
+    {
+      "name": "API",
+      "script": "front-end/index.js",
+      "ignore_watch": ["node_modules", "*.log", ".git/*"],
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_development": {
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "MAILER",
+      "script": "mailer/index.js",
+      "ignore_watch": ["node_modules", "*.log", ".git/*"],
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_development": {
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "PRO_MGR",
+      "script": "product-manager/index.js",
+      "ignore_watch": ["node_modules", "*.log", ".git/*"],
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_development": {
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "ORD_MGR",
+      "script": "order-manager/index.js",
+      "ignore_watch": ["node_modules", "*.log", ".git/*"],
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_development": {
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

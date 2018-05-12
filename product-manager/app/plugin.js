@@ -26,8 +26,7 @@ const plugin = function (options) {
   seneca.add({ role: 'product', cmd: 'fetch', criteria: 'byCategory' }, function (args, done) {
     const products = seneca.make('products');
     products.list$({ category: args.category }, done);
-  }
-  );
+  });
 
   /**
    * Fetch a product by id.
@@ -53,7 +52,7 @@ const plugin = function (options) {
     products.category = category;
     products.price = price;
     products.save$(function (err, product) {
-      done(err, products.data$(false));
+      done(err, product.data$(false));
     });
   });
 
