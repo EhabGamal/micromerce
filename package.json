@@ -16,9 +16,10 @@
   },
   "scripts": {
     "start": "pm2 start ecosystem.json",
-    "test": "nyc --reporter=lcov --reporter=text-lcov mocha --recursive",
+    "test": "nyc mocha --recursive",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint .",
-    "lint-fix": "eslint --fix ."
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "seneca": "^3.4.3",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "coveralls": "^3.0.1",
     "eslint": "^4.19.1",
     "eslint-config-seneca": "^3.0.0",
     "eslint-plugin-hapi": "^4.1.0",
